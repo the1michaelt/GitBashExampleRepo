@@ -40,34 +40,86 @@ def deal_hand(after_deck_was_shuffled):
     return(player_hand)
 
 hand_to_player = deal_hand(after_deck_was_shuffled)
+## WORKING
+# #4. deal to four players
 
-
-#4. deal to four players
-
-def deal_to_players(hand_to_player, after_deck_was_shuffled):
-    count=1
-    while count <=4:
-        print(f'Player', count, deal_hand(after_deck_was_shuffled))
-        count +=1
+# def deal_to_players(hand_to_player, after_deck_was_shuffled):
+#     count=1
+#     while count <=4:
+#         print(f'Player', count, deal_hand(after_deck_was_shuffled))
+#         count +=1
     
-deal_to_players(hand_to_player, after_deck_was_shuffled)
+# hands_dealt=deal_to_players(hand_to_player, after_deck_was_shuffled)
+
+# # taken in part from: https://www.tutorialspoint.com/python-check-if-all-elements-in-a-list-are-same
+# #5. Determining pair counts
+# def determine_player_pair_counts(hands_dealt):
+#     # Using all()method
+#     card_holdings= hands_dealt
+#     index_number_forward = 0
+#     total_pairs=0
+#     while index_number_forward <=4:
+#         result = all(element == deal_to_players[index_number_forward] for element in card_holdings)
+#         index_number_forward += 1
+#         if (result):
+#             total_pairs+= 1
+#         else:
+#             print(", ")
+
+# determine_player_pair_counts(hands_dealt)
+    
+# # # # EXPERIMENTAL
+#4.  deal to four players with pair count
+
+def deal_to_players(hand_to_player):
+        return deal_hand(after_deck_was_shuffled)
+  
+hands_dealt= deal_to_players(hand_to_player)
 
 # taken in part from: https://www.tutorialspoint.com/python-check-if-all-elements-in-a-list-are-same
 #5. Determining pair counts
-def determine_player_pair_counts(deal_to_players()):
-    # Using all()method
+def determine_player_pair_counts(hands_dealt):
+    # Result from count matches with result from len()
+    # total_pairs=0
+    index_number_end = len(hands_dealt)-1
     index_number_forward = 0
-    total_pairs=0
-    while index_number_forward <=4:
-        result = all(element == deal_to_players[index_number_forward] for element in deal_to_players)
-        index_number_forward += 1
+    while True:
+        if 0<= index_number_forward <= 4:
+            result = hands_dealt.count(hands_dealt[index_number_forward]) == hands_dealt[index_number_end]
+            index_number_end -= 1     
         if (result):
-            total pairs+= 1
-        else:
-            print(", ")
-
-determine_player_pair_counts(deal_to_players())
+            print("All the elements are Equal")
+    index_number_forward +=1
+    # else:
+    #     print("Elements are not equal")
     
+    
+    # # Using all()method
+    # print(hands_dealt)
+    # # card_holdings= hands_dealt
+    # index_number_forward = 0
+    # total_pairs=0
+    # while index_number_forward <= 4:
+    #     result = all(cards == deal_to_players[0] for cards in hands_dealt)
+    #     index_number_forward += 1
+    #     if (result):
+    #         total_pairs += 1
+    #     # else:
+    #     #     print(", ")
+
+pairs_in_hand= determine_player_pair_counts(hands_dealt)
+
+
+def run_functions(pairs_in_hand, hands_dealt):
+    count=1
+    while count <=4:
+        deal_to_players(hand_to_player, after_deck_was_shuffled)
+        determine_player_pair_counts(hands_dealt)
+        count += 1
+
+run_functions(pairs_in_hand,hands_dealt)
+    
+
 #     pair_count=0
 #     pair_count +=1
     
